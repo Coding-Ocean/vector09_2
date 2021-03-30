@@ -2,35 +2,35 @@
 void gmain() {
     window(1000, 1000);
     angleMode(DEGREES);
-    colorMode(HSV);
-    float satu = 64;
-    float x, y, angle = 0;
+    float x, y, angle;
     while (notQuit) {
-        clear(120, 255, 50);
+        clear(0, 50, 0);
         mathAxis(5.1f, 255);
 
         x = mathMouseX;
         y = mathMouseY;
+        //ãtÉ^ÉìÉWÉFÉìÉgÇQä÷êîÇ≈äpìxÇãÅÇﬂÇÈ
         angle = atan2(y, x);
 
         strokeWeight(10);
-        stroke(0, 0, 128);
+        stroke(128);
         mathArrow(0, 0, x, y);
-        stroke(240, satu, 255);
-        mathLine(0, 0, x, 0);
-        stroke(0, satu, 255);
-        mathLine(x, 0, x, y);
-
-        stroke(60, satu, 255);
+        //å Çï`âÊÇ∑ÇÈ
+        stroke(255, 255, 200);
         mathArc(0, angle, 0.5f);
 
         textSize(50);
-        fill(0);
-        fill(240, satu, 255);
+        fill(160);
         text((let)"x=" + x, 0, 50);
-        fill(0, satu, 255);
         text((let)"y=" + y, 0, 100);
-        fill(60, satu, 255);
+        fill(255, 255, 200);
         text((let)"atan2(y,x)=" + angle, 0, 150);
+        
+        //ëºÇÃãtéOäpä÷êî
+        float r = sqrt(x * x + y * y);
+        fill(255, 200, 200);
+        text((let)"asin(y/r)=" + asin(y / r), 0, 200);
+        text((let)"acos(x/r)=" + acos(x / r), 0, 250);
+        text((let)"atan(y/x)=" + atan(y / x), 0, 300);
     }
 }
